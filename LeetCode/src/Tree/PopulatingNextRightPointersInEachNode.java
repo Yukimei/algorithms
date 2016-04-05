@@ -2,7 +2,9 @@ package Tree;
 
 import java.util.Deque;
 import java.util.LinkedList;
-
+// need to do in O(1) space
+//the key here is to use cur, and cur.left to decide the level (tmp controls the current level)
+//use next pointer to do the level traversal
 public class PopulatingNextRightPointersInEachNode {
 	class TreeLinkNode {
 		int val;
@@ -12,8 +14,34 @@ public class PopulatingNextRightPointersInEachNode {
 			val = x;
 		}
 	}
-	// a faster method
+	
+    //the key here is to use cur, and cur.left to decide the level (tmp controls the current level)
+    //use next pointer to do the level traversal
     public void connect(TreeLinkNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeLinkNode cur = root;
+        while (cur.left != null) {
+            TreeLinkNode tmp = cur;
+            while (tmp!= null) {
+                tmp.left.next = tmp.right;
+                if (tmp.next != null) {
+                    tmp.right.next = tmp.next.left;
+                }
+                tmp = tmp.next;
+            }
+            cur = cur.left;
+        }
+    }
+    /**
+        1 -> NULL
+       /  \
+      2 -> 3 -> NULL
+     / \  / \
+    4->5->6->7 -> NULL
+    */
+    public void connect2(TreeLinkNode root) {
         TreeLinkNode cur = root;
         while(cur != null && cur.left != null) {
             cur.left.next = cur.right;
@@ -26,7 +54,7 @@ public class PopulatingNextRightPointersInEachNode {
             cur = cur.left;
         }
     }
-	public void connect2(TreeLinkNode root) {
+	public void connect3(TreeLinkNode root) {
 		if (root == null) {
 			return;
 		}
