@@ -15,7 +15,7 @@
     </init-param>
     <init-param>
       <param-name>jdbcURL</param-name>
-      <param-value>       jdbc:mysql:///task7    </param-value>
+      <param-value>  jdbc:mysql://127.0.0.1:3306/task7?user=root </param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
