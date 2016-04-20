@@ -3,6 +3,7 @@ package BackTracking;
 // key here is to use while loop to imitate the recursion stack
 // use index (star and match) to record where the back tracking starting point is (the recusion back position)
 // compare to recusion stack, this is need to consider each breaking point (in stack the system do this for you)
+// check index is inbound in every process
 public class WildcardMatching {
 	public boolean isMatch(String s, String p) {
 		if (s == null || p == null) {
@@ -13,7 +14,7 @@ public class WildcardMatching {
 			if (pi < p.length() && (p.charAt(pi) == '?' || s.charAt(si) == p.charAt(pi))) {
 				si++;
 				pi++;
-			} else if (p.charAt(pi) == '*') {
+			} else if (pi < p.length() && p.charAt(pi) == '*') {
 				star = pi;
 				pi++;
 				match = si;
