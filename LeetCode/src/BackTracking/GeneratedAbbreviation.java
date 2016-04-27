@@ -2,6 +2,10 @@ package BackTracking;
 
 import java.util.ArrayList;
 import java.util.List;
+//只考虑三种情况
+//1. count = 0  那么sub + c
+//2. count != 0 那么可以sub + count + c
+//3. count + 1 三条路
 
 public class GeneratedAbbreviation {
     public List<String> generateAbbreviations(String word) {
