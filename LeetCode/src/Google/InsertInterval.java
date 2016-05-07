@@ -2,6 +2,8 @@ package Google;
 
 import java.util.ArrayList;
 import java.util.List;
+//step1: mark the new interval index for insert
+//step2.insert the new interval
 //key is to determine the insert index
 // and use Math.min, Mathmax to determin the insert interval start and end
 public class InsertInterval {
